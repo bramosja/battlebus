@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { Route } from "react-router-dom";
 import RepresentativeManager from "../modules/RepresentativeManager"
+import LocalList from "./local/LocalList"
+import ProfileList from "./profile/ProfileList"
 
 export default class ApplicationViews extends Component {
   state = {
@@ -23,14 +26,14 @@ export default class ApplicationViews extends Component {
 
   render() {
     return(
-      this.state.offices.map(office =>
-        office.officialIndices.map(index =>
-        <div>
-          <h1>{this.state.representatives[index].name}</h1>
-          <p>{office.name}</p>
-        </div>
-          )
-      )
+      <React.Fragment>
+        <Route exact path="/local" render={props => {
+          return <LocalList data={this.state} />
+        }} />
+        <Route exact path="/profile/:userId(\d+)" render={props =>{
+          return <ProfileList allData={this.state} />
+        }} />
+      </React.Fragment>
     )
   }
 }

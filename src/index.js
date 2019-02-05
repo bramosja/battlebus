@@ -1,9 +1,16 @@
+import './semantic/out/semantic.min.css'
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from "react-router-dom";
 import './index.css';
-import ApplicationViews from './components/ApplicationViews';
+import Capstone from "./components/Capstone"
 
 
-ReactDOM.render(<ApplicationViews />, document.getElementById('root'));
+
+ReactDOM.render(
+    <Router>
+        <Capstone />
+    </Router>
+    , document.getElementById('root'));
 
 
