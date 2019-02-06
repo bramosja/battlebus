@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ApplicationViews from './ApplicationViews';
 import Nav from "./nav/Nav"
-import { Grid, Menu, Segment, Header } from 'semantic-ui-react'
+import { Grid, Menu, Segment} from 'semantic-ui-react'
 
 export default class Capstone extends Component {
     state = { activeItem: 'local' }
@@ -12,15 +12,14 @@ export default class Capstone extends Component {
         return(
 
             <Grid>
-                <Grid.Column width={4}>
+                <Grid.Column width={2}>
                     <Menu fluid vertical tabular>
-                    <Nav handleItemClick={this.handleItemClick} />
+                        <Nav handleItemClick={this.handleItemClick} activeItem={this.state.activeItem}/>
                     </Menu>
                 </Grid.Column>
 
-                <Grid.Column stretched width={12}>
+                <Grid.Column stretched width={14}>
                     <Segment>
-                        <Header as='h3'>Application Content</Header>
                         <ApplicationViews />
                     </Segment>
                 </Grid.Column>

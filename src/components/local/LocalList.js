@@ -6,8 +6,9 @@ export default class LocalList extends Component {
             this.props.data.offices.map(office =>
                 office.officialIndices.map(index =>
                     <div>
-                        <h1>{this.props.data.representatives[index].name}</h1>
                         <p>{office.name}</p>
+                        <p>{this.props.data.representatives[index].name}</p>
+
                     </div>
                 )
             )

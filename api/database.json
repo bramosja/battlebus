@@ -1,0 +1,11 @@
+{
+    "users": [
+        {
+            "id":1,
+            "name": "Brittany Ramos-Janeway",
+            "userName": "bramosja",
+            "password": "horsies",
+            "address": "405 North Jefferson St. Winchester, TN 37398"
+        }
+    ]
+}
