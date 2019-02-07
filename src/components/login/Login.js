@@ -6,7 +6,7 @@ export default class LogIn extends Component {
         return (
             <React.Fragment>
                 <h1>Login</h1>
-                <LoginForm />
+                <LoginForm {...this.props} users={this.props.users} authenticateUser={this.props.authenticateUser}/>
                 <hr />
                 <a href="/register">Register</a>
 
