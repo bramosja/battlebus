@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 export default class LoginForm extends Component {
     state = {
         userName: "",
-        password: ""
+        password: "",
+        user: []
     }
 
     // track changes to the input fields and update state accordingly
@@ -15,10 +16,23 @@ export default class LoginForm extends Component {
     };
 
     handleLogin = e => {
-        let loggedIn = false;
+
         e.preventDefault();
         this.props.authenticateUser(this.state.userName, this.state.password);
-        console.log("LF",this.props)
+        this.props.users.forEach(user => {
+            let loggedIn = false;
+            this.setState({
+                user: user
+            })
+            if (this.state.userName === user.userName && this.state.password === user.password) {
+                loggedIn = true;
+                this.props.history.push("/profile")
+            }
+            if(loggedIn === true) {
+                sessionStorage.setItem("user", user.id);
+
+            }
+        })
     };
 
     render() {

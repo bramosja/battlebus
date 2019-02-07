@@ -58,7 +58,6 @@ export default class ApplicationViews extends Component {
   }
 
   render() {
-    console.log("AV user", this.state.users)
     return(
       <React.Fragment>
         <Route path="/login" render={props => {
