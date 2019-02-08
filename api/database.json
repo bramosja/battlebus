@@ -1,0 +1,34 @@
+{
+    "users": [
+        {
+            "id":1,
+            "name": "Brittany Ramos-Janeway",
+            "userName": "bramosja",
+            "password": "horsies",
+            "address": "405 North Jefferson St. Winchester, TN 37398"
+        }
+    ],
+    "savedPoliticians": [
+        {
+            "id": 1,
+            "name": "Daniel Capybara",
+            "division": "TN",
+            "photo": "https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA0OC84NTAvb3JpZ2luYWwvY2FweWJhcmEtMDIuanBn",
+            "userId": 1
+        },
+        {
+            "id": 2,
+            "name": "Danika Capybara",
+            "division": "TN",
+            "photo": "https://img.buzzfeed.com/buzzfeed-static/static/2014-01/enhanced/webdr06/13/11/enhanced-buzz-orig-5488-1389631451-11.jpg?downsize=700:*&output-format=auto&output-quality=auto",
+            "userId": 2
+        }
+    ],
+    "notes": [
+        {
+            "id": 1,
+            "content": "His name is Daniel",
+            "savedPoliticianId": 1
+        }
+    ]
+}
