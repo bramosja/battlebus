@@ -6,8 +6,8 @@ import Notes from "./notes/Notes"
 export default class SavedPoliticianContainer extends Component {
     render() {
         return (
-            this.props.allData.savedPoliticians.map(politician =>
-                <Segment>
+            this.props.allPoliticians.map(politician =>
+                <Segment key={politician.id}>
                     <Grid columns={2} relaxed='very'>
                         <Grid.Column>
                                 <SavedPoliticianCard politician={politician}/>
@@ -18,5 +18,7 @@ export default class SavedPoliticianContainer extends Component {
                     </Grid>
                     <Divider vertical></Divider>
                 </Segment>
-            ))}
-}
+            )
+        )
+
+    }}

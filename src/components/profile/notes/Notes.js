@@ -5,7 +5,7 @@ export default class Notes extends Component {
     render() {
         return (
             this.props.allNotes.map(note =>
-                    <h5>{note.content}</h5>
+                    <h5 key={note.id}>{note.content}</h5>
                 )
         )}
 }

@@ -23,6 +23,7 @@ export default class ApplicationViews extends Component {
     notes: [],
   }
 
+  // Check the user input against the database and then, if found, set the state as the found user
   authenticateUser = (userInput, userPass) => {
     LoginManager.findUser(userInput, userPass)
       .then(foundUser => {
@@ -32,8 +33,15 @@ export default class ApplicationViews extends Component {
         })
   }
 
+  // get all the politicians that a user has saved
+
+
+
   componentDidMount() {
+    let sessionUser = sessionStorage.getItem("user");
+    let sessionUserId = Number(sessionUser);
     let address = "405%20North%20Jefferson%20St.%20Winchester%20Tennessee"
+
     RepresentativeManager.getAll(address)
       .then(allVoterInfo => {
         this.setState({
@@ -42,12 +50,14 @@ export default class ApplicationViews extends Component {
           offices: allVoterInfo.offices
         })
     })
-    ProfileManager.getAllSavedPoliticians()
-      .then(allSavedPoliticians => {
+
+    ProfileManager.getAllUserPoliticians(sessionUserId)
+    .then(allUsersSavedPoliticians => {
         this.setState({
-          savedPoliticians: allSavedPoliticians
+          savedPoliticians: allUsersSavedPoliticians.savedPoliticians
         })
     })
+
     ProfileManager.getAllNotes()
       .then(allNotes => {
         this.setState({
@@ -58,6 +68,7 @@ export default class ApplicationViews extends Component {
   }
 
   render() {
+
     return(
       <React.Fragment>
         <Route path="/login" render={props => {
@@ -67,7 +78,7 @@ export default class ApplicationViews extends Component {
           return <LocalList data={this.state} />
         }} />
         <Route exact path="/profile/" render={props =>{
-          return <ProfileList allData={this.state} />
+          return <ProfileList allData={this.state} allUserPoliticians={this.state.savedPoliticians} />
         }} />
         {/* <Route exact path="/profile/:userId(\d+)" render={props =>{
           return <ProfileList allData={this.state} />
