@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoginManager from "../../modules/LoginManager"
+import LoginManager from "../../modules/LoginManager";
 
 
 export default class LoginForm extends Component {

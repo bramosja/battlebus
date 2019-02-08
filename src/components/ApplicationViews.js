@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from "react-router-dom";
 import RepresentativeManager from "../modules/RepresentativeManager"
-import ProfileManager from "../modules/ProfileManager"
 import LocalList from "./local/LocalList"
 import ProfileList from "./profile/ProfileList"
 import Login from "./login/Login"
@@ -36,14 +35,6 @@ export default class ApplicationViews extends Component {
           offices: allVoterInfo.offices
         })
     })
-
-    ProfileManager.getAllNotes()
-      .then(allNotes => {
-        this.setState({
-          notes: allNotes
-        })
-    })
-
   }
 
   render() {

@@ -16,7 +16,7 @@ export default class SavedPoliticianContainer extends Component {
                         </Grid.Column>
             {/* add all notes for the saved politician to the user's profile */}
                         <Grid.Column>
-                            <Notes allNotes={this.props.allData.notes}/>
+                            <Notes politicianId={politician.id}/>
                         </Grid.Column>
                     </Grid>
                     <Divider vertical></Divider>
