@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LoginManager from "../../modules/LoginManager"
 
 
 export default class LoginForm extends Component {
@@ -18,22 +19,18 @@ export default class LoginForm extends Component {
     // checks that the user has entered an existing username and corresponding password, and then sets session storage for that user
     handleLogin = e => {
         e.preventDefault();
-        this.props.authenticateUser(this.state.userName, this.state.password);
-        this.props.users.forEach(user => {
-            let loggedIn = false;
-            this.setState({
-                user: user
-            })
-            if (this.state.userName === user.userName && this.state.password === user.password) {
-                loggedIn = true;
-                this.props.history.push("/profile")
-            }
-            if(loggedIn === true) {
-                sessionStorage.setItem("user", user.id);
 
-            }
-        })
-    };
+         // Check the user input against the database and then, if found, set the state as the found user
+        LoginManager.findUser(this.state.userName, this.state.password)
+            .then(foundUser => {
+                console.log("lf =>", foundUser)
+                this.setState({
+                    user: foundUser
+                })
+                sessionStorage.setItem("user", foundUser[0].id);
+                this.props.history.push("/profile")
+            })
+    }
 
     render() {
         return(
