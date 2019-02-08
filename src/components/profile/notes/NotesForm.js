@@ -4,8 +4,8 @@ export default class NotesForm extends Component {
 
     render() {
         return (
-            this.props.allNotes.map(note =>
-                    <h5>{note.content}</h5>
-                )
+            // This will be the form to add a new note to a user's profile
+                    <h5>New Note</h5>
+
         )}
 }

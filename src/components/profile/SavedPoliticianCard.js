@@ -4,6 +4,7 @@ import { Card, Image } from 'semantic-ui-react'
 export default class SavedPoliticianCard extends Component {
     render() {
         return (
+            // this card contains the immediate information the user would like to access about their saved politician, and the ability to add a note, delete the card, or see more information about the politician
                 <Card key={this.props.politician.id}>
                     <Image src={this.props.politician.photo} />
                     <Card.Content>
@@ -18,6 +19,7 @@ export default class SavedPoliticianCard extends Component {
                     <Card.Content extra>
                         <button>Add Note</button>
                         <button>Impeach</button>
+                        <button>Details</button>
                     </Card.Content>
                 </Card>
         )}

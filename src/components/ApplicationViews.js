@@ -12,6 +12,7 @@ import StateList from "./state/StateList"
 
 
 export default class ApplicationViews extends Component {
+  // setting up for authentication of pages before a user can access them
   isAuthenticated = () => sessionStorage.getItem("user") !== null
 
   state = {
@@ -33,15 +34,15 @@ export default class ApplicationViews extends Component {
         })
   }
 
-  // get all the politicians that a user has saved
-
-
-
   componentDidMount() {
+    // get the current session user
     let sessionUser = sessionStorage.getItem("user");
     let sessionUserId = Number(sessionUser);
+
+    // currently hardcoding the address until the search functionality is implemented
     let address = "405%20North%20Jefferson%20St.%20Winchester%20Tennessee"
 
+    // get all current politicians and candidates from the google civic api
     RepresentativeManager.getAll(address)
       .then(allVoterInfo => {
         this.setState({
@@ -51,6 +52,7 @@ export default class ApplicationViews extends Component {
         })
     })
 
+  // get all the politicians that the active user has saved
     ProfileManager.getAllUserPoliticians(sessionUserId)
     .then(allUsersSavedPoliticians => {
         this.setState({
@@ -80,9 +82,6 @@ export default class ApplicationViews extends Component {
         <Route exact path="/profile/" render={props =>{
           return <ProfileList allData={this.state} allUserPoliticians={this.state.savedPoliticians} />
         }} />
-        {/* <Route exact path="/profile/:userId(\d+)" render={props =>{
-          return <ProfileList allData={this.state} />
-        }} /> */}
         <Route exact path="/federal" render={props =>{
           return <FederalList allData={this.state} />
         }} />

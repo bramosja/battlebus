@@ -15,8 +15,8 @@ export default class LoginForm extends Component {
         this.setState(stateToChange);
     };
 
+    // checks that the user has entered an existing username and corresponding password, and then sets session storage for that user
     handleLogin = e => {
-
         e.preventDefault();
         this.props.authenticateUser(this.state.userName, this.state.password);
         this.props.users.forEach(user => {
