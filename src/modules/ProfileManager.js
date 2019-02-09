@@ -7,8 +7,10 @@ export default {
         return fetch(`${remoteUrl}/users/${userId}?_embed=savedPoliticians`).then(r => r.json())
     },
 
-    getAllSavedPoliticianNotes(politicianId) {
-        return fetch(`${remoteUrl}/savedPoliticians/${politicianId}?_embed=notes`).then(r => r.json())
+    deletePolitician(id) {
+        return fetch(`${remoteUrl}/savedPoliticians/${id}`, {
+            method: "DELETE"
+        })
     },
 
     // *************************USERS*************************
@@ -18,6 +20,11 @@ export default {
     },
 
     // *************************NOTES*************************
+
+    getAllSavedPoliticianNotes(politicianId) {
+        return fetch(`${remoteUrl}/savedPoliticians/${politicianId}?_embed=notes`).then(r => r.json())
+    },
+
     addNewNote(noteObject){
         return fetch(`${remoteUrl}/notes`, {
             method: "POST",
@@ -25,6 +32,22 @@ export default {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(noteObject)
+        })
+    },
+
+    editNote(noteObject){
+        return fetch(`${remoteUrl}/notes/${noteObject.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(noteObject)
+        })
+    },
+
+    deleteNote(id) {
+        return fetch(`${remoteUrl}/notes/${id}`, {
+            method: "DELETE"
         })
     }
 }
