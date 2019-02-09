@@ -26,5 +26,16 @@ export default {
             },
             body: JSON.stringify(noteObject)
         })
+    },
+
+    editNote(noteObject){
+        return fetch(`${remoteUrl}/notes/${noteObject.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(noteObject)
+        })
+
     }
 }
