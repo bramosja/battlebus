@@ -15,5 +15,16 @@ export default {
 
     getAllUsers() {
         return fetch(`${remoteUrl}/users`).then(r => r.json())
+    },
+
+    // *************************NOTES*************************
+    addNewNote(noteObject){
+        return fetch(`${remoteUrl}/notes`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(noteObject)
+        })
     }
 }

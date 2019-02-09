@@ -17,9 +17,7 @@ export default class SavedPoliticianCard extends Component {
                         {/* <Card.Description></Card.Description> */}
                     </Card.Content>
                     <Card.Content extra>
-                        <button>Add Note</button>
-                        <button>Impeach</button>
-                        <button>Details</button>
+                        <p>Somemoreinfo</p>
                     </Card.Content>
                 </Card>
         )}

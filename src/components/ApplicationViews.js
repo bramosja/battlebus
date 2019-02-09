@@ -7,8 +7,6 @@ import Login from "./login/Login"
 import FederalList from "./federal/FederalList"
 import RegionalList from "./regional/RegionalList"
 import StateList from "./state/StateList"
-
-
 export default class ApplicationViews extends Component {
   // setting up for authentication of pages before a user can access them
   isAuthenticated = () => sessionStorage.getItem("user") !== null
@@ -18,8 +16,6 @@ export default class ApplicationViews extends Component {
     representatives: [],
     offices: [],
     users: [],
-    savedPoliticians: [],
-    notes: [],
   }
 
   componentDidMount() {
@@ -39,7 +35,6 @@ export default class ApplicationViews extends Component {
 
   render() {
     console.log(sessionStorage.getItem("user"))
-
 
     return(
       <React.Fragment>
