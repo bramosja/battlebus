@@ -16,11 +16,9 @@ export default class ApplicationViews extends Component {
   }
 
   componentDidMount() {
-    // currently hardcoding the address until the search functionality is implemented
-    let address = "405%20North%20Jefferson%20St.%20Winchester%20Tennessee"
 
     // get all current politicians and candidates from the google civic api
-    RepresentativeManager.getAll(address)
+    RepresentativeManager.getAllOffices()
       .then(allVoterInfo => {
         this.setState({
           divisions: allVoterInfo.divisions,
@@ -31,7 +29,7 @@ export default class ApplicationViews extends Component {
   }
 
   render() {
-    console.log(sessionStorage.getItem("user"))
+    console.log(sessionStorage.getItem("user"));
     return(
       <React.Fragment>
         <Route path="/login" render={props => {

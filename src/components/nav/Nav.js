@@ -7,7 +7,6 @@ export default class Nav extends Component {
       return (
         <React.Fragment>
           <Link name="local" className="item" to="/local">Local</Link>
-          <Link className="item" to="/regional" onClick={this.props.handleItemClick}>Regional</Link>
           <Link className="item" to="/state" onClick={this.props.handleItemClick}>State</Link>
           <Link className="item" to="/federal" onClick={this.props.handleItemClick}>Federal</Link>
           <Link className="item" to="/profile" onClick={this.props.handleItemClick}>Profile</Link>
