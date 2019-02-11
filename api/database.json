@@ -20,7 +20,7 @@
   "notes": [
     {
       "id": 1,
-      "content": "New text",
+      "content": "Actually, another",
       "savedPoliticianId": 1
     },
     {
@@ -34,18 +34,13 @@
       "id": 5
     },
     {
-      "content": "Daniel's new note",
-      "savedPoliticianId": 1,
-      "id": 6
-    },
-    {
-      "content": "Actually, another",
-      "savedPoliticianId": 1,
-      "id": 11
+      "id": 11,
+      "content": "Actually, anather",
+      "savedPoliticianId": 1
     },
     {
       "id": 12,
-      "content": "wasn't final",
+      "content": "Info",
       "savedPoliticianId": 1
     },
     {
@@ -57,6 +52,11 @@
       "content": "More more more",
       "savedPoliticianId": 1,
       "id": 16
+    },
+    {
+      "content": "Este es Daniel",
+      "savedPoliticianId": 1,
+      "id": 23
     }
   ]
 }
