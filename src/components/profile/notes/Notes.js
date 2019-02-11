@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ProfileManager from "../../../modules/ProfileManager";
 import NotesForm from "./NotesForm"
 import EditNote from './EditNote';
+import { Button } from 'semantic-ui-react'
 
 export default class Notes extends Component {
     state = {
@@ -49,7 +50,8 @@ export default class Notes extends Component {
                                         <div key={note.id}>
                                             <p>
                                                 {note.content}
-                                                <button id={note.id} onClick={this.toggleEdit}>Edit</button>
+                                                <br />
+                                                <Button primary size="mini" id={note.id} onClick={this.toggleEdit}>Edit</Button>
                                             </p>
                                         </div>
                                     )

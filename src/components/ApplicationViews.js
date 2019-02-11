@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from "react-router-dom";
 import RepresentativeManager from "../modules/RepresentativeManager"
-import LocalList from "./local/LocalList"
 import ProfileList from "./profile/ProfileList"
 import Login from "./login/Login"
-import FederalList from "./federal/FederalList"
-import RegionalList from "./regional/RegionalList"
-import StateList from "./state/StateList"
+import OfficesList from "./offices/OfficesList"
 export default class ApplicationViews extends Component {
   // setting up for authentication of pages before a user can access them
   isAuthenticated = () => sessionStorage.getItem("user") !== null
@@ -15,7 +12,7 @@ export default class ApplicationViews extends Component {
     divisions: [],
     representatives: [],
     offices: [],
-    users: [],
+    users: []
   }
 
   componentDidMount() {
@@ -35,27 +32,15 @@ export default class ApplicationViews extends Component {
 
   render() {
     console.log(sessionStorage.getItem("user"))
-
     return(
       <React.Fragment>
         <Route path="/login" render={props => {
           return <Login {...props} users={this.state.users} authenticateUser={this.authenticateUser}/>
         }}/>
-        <Route exact path="/local" render={props => {
-          return <LocalList data={this.state} />
-        }} />
-        <Route exact path="/profile/" render={props =>{
+        <Route exact path="/profile" render={props =>{
           return <ProfileList allData={this.state} />
         }} />
-        <Route exact path="/federal" render={props =>{
-          return <FederalList allData={this.state} />
-        }} />
-        <Route exact path="/state" render={props =>{
-          return <StateList allData={this.state} />
-        }} />
-        <Route exact path="/regional" render={props =>{
-          return <RegionalList allData={this.state} />
-        }} />
+        <OfficesList offices={this.state.offices} />
       </React.Fragment>
     )
   }
