@@ -14,10 +14,10 @@ export default class OfficesList extends Component {
         federalOfficials: [],
         stateOffices: [],
         stateOfficials: [],
-        localOffices: [],
-        localOfficials: []
+        localOffices: []
     }
 
+    // extra steps are required to find the local offices since they are able to be distinguished by their absence of information
     findLocalOffices = () => {
         let foundOffices = [];
         this.state.allOffices.forEach(office => {
@@ -30,6 +30,7 @@ export default class OfficesList extends Component {
         })
     }
 
+    // set state with the information for each office and official holding that office
     componentDidMount() {
         RepresentativeManager.getAllFederalOffices()
             .then( federalOffice => {
