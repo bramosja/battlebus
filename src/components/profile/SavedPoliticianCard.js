@@ -12,12 +12,12 @@ export default class SavedPoliticianCard extends Component {
                             {this.props.politician.name}
                         </Card.Header>
                         <Card.Meta>
-                            {this.props.politician.division}
+                            {this.props.politician.levelOfGovernment}
                         </Card.Meta>
                         {/* <Card.Description></Card.Description> */}
                     </Card.Content>
                     <Card.Content extra>
-                        <p>Somemoreinfo</p>
+                        {/* <p>Somemoreinfo</p> */}
                     </Card.Content>
                 </Card>
         )}

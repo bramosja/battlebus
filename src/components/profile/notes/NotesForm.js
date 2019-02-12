@@ -21,6 +21,7 @@ export default class NotesForm extends Component {
         };
 
         this.props.addNewNote(noteObject)
+        this.props.toggleVisibility()
     }
 
     componentDidMount(){
@@ -34,7 +35,7 @@ export default class NotesForm extends Component {
             // This will be the form to add a new note to a user's profile
                 <div key={this.props.politicianId}>
                     <input type="textarea" id="content" onChange={this.handleChange} />
-                    <button onClick={this.addNote}>Save</button>
+                    <button type="button" onClick={this.addNote}>Save</button>
                 </div>
 
         )}

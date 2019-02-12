@@ -14,7 +14,7 @@ export default class Notes extends Component {
 
     // checks to see whether the add new note button has been clicked, and removes other elements if so
     toggleVisibility = () => {
-        this.setState({ visible: !this.state.newNoteVisible });
+        this.setState({ newNoteVisible: !this.state.newNoteVisible });
     }
 
     // checks to see if the edit button has been clicked and hides existing note and sets state to indicate which note will be edited
@@ -31,7 +31,7 @@ export default class Notes extends Component {
     // this function toggles the buttons, and what displays in the notes section when the add note or edit note buttons are clicked
     addNoteForm = () => {
         // if the add button has been clicked, the notes form displays so that the user can add a new note
-        if(this.state.visible) {
+        if(this.state.newNoteVisible) {
            return (
                 <NotesForm addNewNote={this.addNewNote} toggleVisibility={this.toggleVisibility} politicianId={this.props.politicianId} />
            )
@@ -59,6 +59,7 @@ export default class Notes extends Component {
         }
     };
 
+    // this function, when called, will add a new note and update the data held in state
     addNewNote = (noteObject) => {
         ProfileManager.addNewNote(noteObject)
           .then( () => {
@@ -67,7 +68,6 @@ export default class Notes extends Component {
                         this.setState({
                             notes: allNotes.notes
                         })
-                this.toggleVisibility();
             })
         })
       }
@@ -110,7 +110,7 @@ export default class Notes extends Component {
             // this feature maps through all of the politician's notes to print them to the DOM
             <React.Fragment>
                 {this.addNoteForm()}
-                <button onClick={this.toggleVisibility}>Add Note</button>
+                <button type="button" onClick={this.toggleVisibility}>Add Note</button>
             </React.Fragment>
 
         )}

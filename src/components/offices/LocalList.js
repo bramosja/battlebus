@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import RepresentativeCard from "./RepresentativeCard";
 
 export default class LocalList extends Component {
+    state = {
+        level: "Local Government"
+    }
 
     displayPoliticianInfo = () => {
         // create an if statement to ensure that the state actually contains the necessary information
@@ -13,7 +16,7 @@ export default class LocalList extends Component {
                     {this.props.localOffices.map(localOffice =>
                         localOffice.officialIndices.map(officialIndex =>
                             // call upon the representative card component for styling
-                            <RepresentativeCard key={officialIndex} office={localOffice} index={officialIndex} official={this.props.allOfficials[officialIndex]} photo={this.props.allOfficials[officialIndex].photoUrl} />
+                            <RepresentativeCard key={officialIndex} office={localOffice} index={officialIndex} official={this.props.allOfficials[officialIndex]} photo={this.props.allOfficials[officialIndex].photoUrl} level={this.state.level}/>
                     ))}
                 </React.Fragment>
             )
