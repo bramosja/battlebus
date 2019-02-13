@@ -20,6 +20,7 @@ export default class OfficesList extends Component {
     // extra steps are required to find the local offices since they are able to be distinguished by their absence of information
     findLocalOffices = () => {
         let foundOffices = [];
+        if(this.state.allOffices){
         this.state.allOffices.forEach(office => {
             if(!office.levels){
                 foundOffices.push(office)
@@ -27,7 +28,9 @@ export default class OfficesList extends Component {
         })
         this.setState({
             localOffices: foundOffices
-        })
+        })} else {
+            return <p>unavailable</p>
+        }
     }
 
     // set state with the information for each office and official holding that office

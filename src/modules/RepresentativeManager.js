@@ -1,28 +1,40 @@
-
-const url = "https://www.googleapis.com/civicinfo/v2/representatives";
+const externalApiUrl = "https://www.googleapis.com/civicinfo/v2/representatives";
+const jsonUrl = "http://localhost:5002"
 let apiKey = "key=AIzaSyAF3M0uelGbxyrv6QuVqrHcfFxM3a3nelc";
-const address = "405%20North%20Jefferson%20St.%20Winchester%20Tennessee";
-
 
 export default {
 
     // ****************************OFFICES****************************
     getAllOffices() {
-        return fetch(`${url}?address=${address}&${apiKey}`).then(r => r.json())
+        let address = sessionStorage.getItem("address");
+        return fetch(`${externalApiUrl}?address=${address}&${apiKey}`).then(r => r.json())
     },
 
     getAllFederalOffices() {
-        return fetch(`${url}?levels=country&address=${address}&${apiKey}`).then(r => r.json())
+        let address = sessionStorage.getItem("address");
+        return fetch(`${externalApiUrl}?levels=country&address=${address}&${apiKey}`).then(r => r.json())
     },
 
     getAllStateOffices() {
-        return fetch(`${url}?levels=administrativeArea1&address=${address}&${apiKey}`).then(r => r.json())
+        let address = sessionStorage.getItem("address");
+        return fetch(`${externalApiUrl}?levels=administrativeArea1&address=${address}&${apiKey}`).then(r => r.json())
     },
 
     // ****************************OFFICIALS****************************
 
     getAllOfficials() {
-        return fetch(`${url}?address=${address}&${apiKey}`).then(r => r.json())
+        let address = sessionStorage.getItem("address");
+        return fetch(`${externalApiUrl}?address=${address}&${apiKey}`).then(r => r.json())
+    },
+
+    saveOfficial(officialObject) {
+        return fetch(`${jsonUrl}/savedPoliticians`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(officialObject)
+        })
     }
 
 

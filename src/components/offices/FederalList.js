@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import RepresentativeCard from "./RepresentativeCard"
 
 export default class FederalList extends Component {
+    state = {
+        level: "Federal Government"
+    }
+
     displayPoliticianInfo = () => {
         // create an if statement to ensure that the state actually contains the necessary information
         if(this.props.federalOffices.length > 0 && this.props.federalOfficials.length > 0){
@@ -12,7 +16,7 @@ export default class FederalList extends Component {
                     {this.props.federalOffices.map(federalOffice =>
                         federalOffice.officialIndices.map( officialIndex =>
                             // call upon the representative card component for styling
-                            <RepresentativeCard key={officialIndex} office={federalOffice} index={officialIndex} official={this.props.federalOfficials[officialIndex]} photo={this.props.federalOfficials[officialIndex].photoUrl} />
+                            <RepresentativeCard key={officialIndex} office={federalOffice} index={officialIndex} official={this.props.federalOfficials[officialIndex]} photo={this.props.federalOfficials[officialIndex].photoUrl} level={this.state.level} />
                         )
                     )}
                 </React.Fragment>

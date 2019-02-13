@@ -23,12 +23,14 @@ export default class LoginForm extends Component {
          // Check the user input against the database and then, if found, set the state as the found user
         LoginManager.findUser(this.state.userName, this.state.password)
             .then(foundUser => {
-                console.log("lf =>", foundUser)
                 this.setState({
                     user: foundUser
                 })
                 sessionStorage.setItem("user", foundUser[0].id);
-                this.props.history.push("/profile")
+                sessionStorage.setItem("address", foundUser[0].address)
+                if(sessionStorage.getItem("address")){
+                    this.props.history.push("/profile")
+                }
             })
     }
 
