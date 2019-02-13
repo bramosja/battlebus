@@ -8,8 +8,11 @@ export default class ProfileList extends Component {
     }
 
     deletePolitician = (id) => {
+        // gets the current session user
         let sessionUser = sessionStorage.getItem("user");
         let sessionUserId = Number(sessionUser);
+
+        // deletes the specified politician from the current user's saved politicians and updates the profile information accordingly
         ProfileManager.deletePolitician(id)
             .then( () => ProfileManager.getAllUserPoliticians(sessionUserId)
             .then(allUsersSavedPoliticians => {

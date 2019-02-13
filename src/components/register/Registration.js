@@ -3,7 +3,7 @@ import { Button, Form } from 'semantic-ui-react'
 import RegistrationManager from "./../../modules/RegistrationManager"
 
 export default class Registration extends Component {
-
+    // state holds the input from user
     state = {
             name: "",
             userName: "",
@@ -17,6 +17,7 @@ export default class Registration extends Component {
         this.setState(stateToChange);
     };
 
+    // this function takes the input from state and adds the information to the database, then sends the user to the login page
     addNewUser = () => {
         let newUserObject = {
             name: this.state.name,

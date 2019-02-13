@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 export default class EditNote extends Component {
+    // state will hold the input of the new note
     state = {
             id: "",
             content: ""
@@ -12,6 +13,7 @@ export default class EditNote extends Component {
         this.setState(stateToChange);
     };
 
+    // this function takes the input from state and edits the note in the database
     editNoteButton = (evt) => {
         evt.preventDefault();
 
@@ -26,6 +28,7 @@ export default class EditNote extends Component {
         this.props.noteEditor(editNoteObject);
     };
 
+    // this function deletes the note from the database
     removeNote = (evt) => {
         evt.preventDefault();
 

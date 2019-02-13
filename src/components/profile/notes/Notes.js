@@ -46,6 +46,7 @@ export default class Notes extends Component {
                                     </div>
                                 )
                             } else {
+                                // if none of the other conditions are triggered, this piece of the code returns the list of notes for each politician
                                 return (
                                         <div key={note.id}>
                                             <p>
@@ -71,22 +72,10 @@ export default class Notes extends Component {
             })
         })
       }
-
-      editNote = (noteObject) => {
-        ProfileManager.editNote(noteObject)
-            .then( () => {
-                ProfileManager.getAllSavedPoliticianNotes(this.props.politicianId)
-                    .then(allNotes => {
-                        this.setState({
-                            notes: allNotes.notes
-                        })
-                    })
-            })
-      }
-
-      deleteNote = (id) => {
-          ProfileManager.deleteNote(id)
-          .then( () => {
+    // this function, when called, will edit a note and update the data held in state
+    editNote = (noteObject) => {
+    ProfileManager.editNote(noteObject)
+        .then( () => {
             ProfileManager.getAllSavedPoliticianNotes(this.props.politicianId)
                 .then(allNotes => {
                     this.setState({
@@ -94,7 +83,19 @@ export default class Notes extends Component {
                     })
                 })
         })
-      }
+    }
+    // this function, when called, will delete a note and update the data held in state
+    deleteNote = (id) => {
+        ProfileManager.deleteNote(id)
+        .then( () => {
+        ProfileManager.getAllSavedPoliticianNotes(this.props.politicianId)
+            .then(allNotes => {
+                this.setState({
+                    notes: allNotes.notes
+                })
+            })
+        })
+    }
 
     componentDidMount(){
         ProfileManager.getAllSavedPoliticianNotes(this.props.politicianId)
@@ -107,7 +108,6 @@ export default class Notes extends Component {
 
     render() {
         return (
-            // this feature maps through all of the politician's notes to print them to the DOM
             <React.Fragment>
                 {this.addNoteForm()}
                 <button type="button" onClick={this.toggleVisibility}>Add Note</button>

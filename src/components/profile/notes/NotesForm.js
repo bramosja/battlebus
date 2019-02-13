@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 export default class NotesForm extends Component {
+    // state hold the new note's input
     state = {
         politician: "",
         content: ""
@@ -12,6 +13,7 @@ export default class NotesForm extends Component {
         this.setState(stateToChange);
     }
 
+    // this function takes the input from state and adds it to the database upon cilcking save
     addNote = evt => {
         evt.preventDefault();
 
