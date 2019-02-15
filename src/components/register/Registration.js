@@ -44,7 +44,7 @@ export default class Registration extends Component {
                 <Grid.Column>
                     <Image src={Logo} size="large" />
                     <br />
-        <div class="registration">
+        <div className="registration">
             <Form>
                 <Form.Group width="equal">
                 <Form.Field>

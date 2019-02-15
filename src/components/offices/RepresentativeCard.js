@@ -6,9 +6,7 @@ import "./Offices.css"
 
 
 export default class RepresentativeCard extends Component {
-
-
-
+    // the saveOfficial function takes some of the information provided by the civic api and saves it to the user's profile. it then alerts the user that they have saved the politician
     saveOfficial = () => {
         let sessionUser = sessionStorage.getItem("user");
         let sessionUserId = Number(sessionUser);
@@ -38,7 +36,7 @@ export default class RepresentativeCard extends Component {
     render(){
         return (
             <Grid.Column>
-                <div class="officeName">
+                <div className="officeName">
                     <h3>{this.props.office.name}</h3>
                 </div>
                 <Card key={this.props.index}>

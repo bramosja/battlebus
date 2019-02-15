@@ -29,9 +29,7 @@ export default class LoginForm extends Component {
                 })
                 sessionStorage.setItem("user", foundUser[0].id);
                 sessionStorage.setItem("address", foundUser[0].address)
-                if(sessionStorage.getItem("address")){
-                    this.props.history.push("/profile")
-                }
+                this.props.history.push("/profile")
             });
     };
 
