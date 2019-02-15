@@ -14,8 +14,9 @@ export default class OfficesList extends Component {
         federalOfficials: [],
         stateOffices: [],
         stateOfficials: [],
-        localOffices: []
-    }
+        localOffices: [],
+        divisions: []
+    };
 
     // extra steps are required to find the local offices since they are able to be distinguished by their absence of information
     findLocalOffices = () => {
@@ -30,8 +31,8 @@ export default class OfficesList extends Component {
             localOffices: foundOffices
         })} else {
             return <p>unavailable</p>
-        }
-    }
+        };
+    };
 
     // set state with the information for each office and official holding that office
     componentDidMount() {
@@ -41,24 +42,25 @@ export default class OfficesList extends Component {
                     federalOffices: federalOffice.offices,
                     federalOfficials: federalOffice.officials
                 })
-            })
+            });
         RepresentativeManager.getAllStateOffices()
             .then( stateOffice => {
                 this.setState({
                     stateOffices: stateOffice.offices,
                     stateOfficials: stateOffice.officials
                 })
-            })
+            });
         RepresentativeManager.getAllOffices()
             .then( allOffices => {
                 this.setState({
                     allOffices: allOffices.offices,
-                    allOfficials: allOffices.officials
+                    allOfficials: allOffices.officials,
+                    divisions: allOffices.divisions
+
                 })
                 this.findLocalOffices()
-            })
-
-    }
+            });
+    };
 
     render() {
         return (
