@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import LoginManager from "../../modules/LoginManager";
+import { Button, Form } from "semantic-ui-react";
 
 
 export default class LoginForm extends Component {
@@ -7,7 +8,7 @@ export default class LoginForm extends Component {
         userName: "",
         password: "",
         user: []
-    }
+    };
 
     // track changes to the input fields and update state accordingly
     handleFieldChange = evt => {
@@ -31,33 +32,40 @@ export default class LoginForm extends Component {
                 if(sessionStorage.getItem("address")){
                     this.props.history.push("/profile")
                 }
-            })
-    }
+            });
+    };
 
     render() {
         return(
-            <form onSubmit={this.handleLogin}>
-                <label>
-                    User Name:
-                </label>
-                <input
-                    onChange={this.handleFieldChange}
-                    id="userName"
-                    required
-                    autoFocus
-                />
-                <label>
-                    Password:
-                </label>
-                <input
-                    onChange={this.handleFieldChange}
-                    type="password"
-                    id="password"
-                    required
-                />
-                <br />
-                <button type="submit">Log In</button>
-            </form>
+            <React.Fragment>
+                <Form>
+                    <Form.Group widths="equal">
+                        <Form.Field>
+                            <label>
+                                User Name:
+                            </label>
+                            <input
+                                onChange={this.handleFieldChange}
+                                id="userName"
+                                required
+                                autoFocus
+                            />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>
+                                Password:
+                            </label>
+                            <input
+                                onChange={this.handleFieldChange}
+                                type="password"
+                                id="password"
+                                required
+                            />
+                        </Form.Field>
+                    </Form.Group>
+                </Form>
+                <Button type="submit" onClick={this.handleLogin} size="tiny">Log In</Button>
+            </React.Fragment>
         )
     }
 }

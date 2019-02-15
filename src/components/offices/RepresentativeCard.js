@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
-import { Card, Icon, Image, Button } from 'semantic-ui-react';
-import RepresentativeManager from "./../../modules/RepresentativeManager"
+import React, { Component } from "react";
+import { Card, Grid, Icon, Image, Button } from "semantic-ui-react";
+import RepresentativeManager from "./../../modules/RepresentativeManager";
+import blankProfileImage from "./images/blankProfilePic.png"
+import "./Offices.css"
+
 
 export default class RepresentativeCard extends Component {
 
@@ -22,21 +25,36 @@ export default class RepresentativeCard extends Component {
         alert(`You have saved ${this.props.official.name} to your profile`)
     }
 
+
+    // function that distinguishes profiles that contain photos from profiles that do not, and includes an image in place of the actual photo
+    officialPhoto = () => {
+        if(this.props.photo){
+            return this.props.photo;
+        } else {
+            return blankProfileImage;
+        }
+    }
+
     render(){
         return (
-            <Card key={this.props.index}>
-                <Image src={this.props.photo} />
-                <Card.Content>
-                <Card.Header>{this.props.official.name}</Card.Header>
-                <Card.Meta>Maybe some district info?</Card.Meta>
-                <Card.Description>{this.props.office.name}</Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                    <Icon name='address card' />
-                    Contact
-                    <Button onClick={this.saveOfficial}>Save</Button>
-                </Card.Content>
-            </Card>
+            <Grid.Column>
+                <div class="officeName">
+                    <h3>{this.props.office.name}</h3>
+                </div>
+                <Card key={this.props.index}>
+                    <Image src={this.officialPhoto()} />
+                    <Card.Content>
+                    <Card.Header>{this.props.official.name}</Card.Header>
+                    <Card.Meta></Card.Meta>
+                    <Card.Description>{this.props.official.party}</Card.Description>
+                    </Card.Content>
+                    <Card.Content extra>
+                        <Icon name='address card' />
+                        Contact
+                        <Button onClick={this.saveOfficial}>Save</Button>
+                    </Card.Content>
+                </Card>
+            </Grid.Column>
         )
     }
 }

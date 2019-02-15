@@ -106,39 +106,11 @@
       "id": 15
     },
     {
-      "name": "brittany",
-      "userName": "brittany",
-      "password": "brittany",
-      "address": "405 North Jefferson St. Winchester TN",
-      "id": 16
-    },
-    {
       "name": "allison",
       "userName": "allison",
       "password": "allison",
       "address": "405 North Jefferson St. Winchester TN",
       "id": 17
-    },
-    {
-      "name": "britt",
-      "userName": "britt",
-      "password": "britt",
-      "address": "405 North Jefferson St. Winchester TN",
-      "id": 18
-    },
-    {
-      "name": "b",
-      "userName": "b",
-      "password": "b",
-      "address": "405 North Jefferson St. Winchester TN",
-      "id": 19
-    },
-    {
-      "name": "c",
-      "userName": "c",
-      "password": "c",
-      "address": "405 North Jefferson St. Winchester TN",
-      "id": 20
     },
     {
       "name": "hannah",
@@ -157,21 +129,6 @@
   ],
   "savedPoliticians": [
     {
-      "id": 1,
-      "name": "Daniel Capybara",
-      "division": "TN",
-      "photo": "https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA0OC84NTAvb3JpZ2luYWwvY2FweWJhcmEtMDIuanBn",
-      "userId": 1
-    },
-    {
-      "name": "Lamar Alexander",
-      "office": "United States Senate",
-      "levelOfGovernment": "Federal Government",
-      "photo": "http://bioguide.congress.gov/bioguide/photo/A/A000360.jpg",
-      "userId": 1,
-      "id": 3
-    },
-    {
       "name": "John Cooper",
       "office": "Metro Council At-Large 1",
       "photo": "http://www.nashville.gov/portals/0/SiteContent/Council/images/members/al_cooper_john.jpg",
@@ -184,21 +141,6 @@
       "photo": "http://www.nashville.gov/portals/0/SiteContent/Council/images/members/al_gilmore_erica.jpg",
       "userId": 2,
       "id": 7
-    },
-    {
-      "name": "Bruce Spencer",
-      "office": "Assessor of Property",
-      "levelOfGovernment": "Local Government",
-      "userId": 1,
-      "id": 8
-    },
-    {
-      "name": "Janice Bowling",
-      "office": "TN State Senate District 16",
-      "levelOfGovernment": "State Government",
-      "photo": "http://www.capitol.tn.gov/senate/members/images/s16.jpg",
-      "userId": 1,
-      "id": 9
     },
     {
       "name": "Bill Garrett",
@@ -214,44 +156,16 @@
       "photo": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/45/PE%20Color.jpg",
       "userId": 22,
       "id": 11
+    },
+    {
+      "name": "Lydia D. Johnson",
+      "office": "Register of Deeds",
+      "levelOfGovernment": "Local Government",
+      "userId": 1,
+      "id": 12
     }
   ],
   "notes": [
-    {
-      "id": 4,
-      "content": "This is Daniel's new note",
-      "savedPoliticianId": 1
-    },
-    {
-      "content": "Daniel has another note!?!",
-      "savedPoliticianId": 1,
-      "id": 5
-    },
-    {
-      "id": 11,
-      "content": "Actually, anather",
-      "savedPoliticianId": 1
-    },
-    {
-      "id": 12,
-      "content": "Info",
-      "savedPoliticianId": 1
-    },
-    {
-      "content": "Even more notes",
-      "savedPoliticianId": 1,
-      "id": 14
-    },
-    {
-      "content": "More more more",
-      "savedPoliticianId": 1,
-      "id": 16
-    },
-    {
-      "id": 23,
-      "content": "Este es Daniel",
-      "savedPoliticianId": 1
-    },
     {
       "content": "new note stuff",
       "savedPoliticianId": 6,

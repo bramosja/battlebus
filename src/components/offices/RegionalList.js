@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RepresentativeCard from "./RepresentativeCard";
+import { Grid } from 'semantic-ui-react'
 
 export default class RegionalList extends Component {
     state = {
@@ -10,8 +11,9 @@ export default class RegionalList extends Component {
         // create an if statement to ensure that the state actually contains information
         if(this.props.stateOffices.length > 0 && this.props.stateOfficials.length > 0){
             return (
-                <React.Fragment>
+                <Grid columns={3} padded>
                     <h1>State</h1>
+                    <Grid.Row>
                     {/* map through the offices and the indices indicated by the office to get the office title and the name of the person holding that office */}
                     {this.props.stateOffices.map(stateOffice =>
                         stateOffice.officialIndices.map( officialIndex =>
@@ -19,7 +21,8 @@ export default class RegionalList extends Component {
                             <RepresentativeCard key={officialIndex} office={stateOffice} index={officialIndex} official={this.props.stateOfficials[officialIndex]} photo={this.props.stateOfficials[officialIndex].photoUrl} level={this.state.level}/>
                         )
                     )}
-                </React.Fragment>
+                </Grid.Row>
+                </Grid>
             )
             } else {
                 return (
