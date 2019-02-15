@@ -43,13 +43,6 @@
       "id": 6
     },
     {
-      "name": "Bellows",
-      "userName": "Blue",
-      "password": "blue",
-      "address": "405 North Jefferson St. Winchester TN 37398",
-      "id": 7
-    },
-    {
       "name": "leah",
       "userName": "leah",
       "password": "leah",
@@ -62,20 +55,6 @@
       "password": "andy",
       "address": "405 North Jefferson St. Winchester TN",
       "id": 9
-    },
-    {
-      "name": "nicks dogisamurderer",
-      "userName": "nick",
-      "password": "nick",
-      "address": "405 N Jefferson St, Apt A Winchester TN 37398",
-      "id": 10
-    },
-    {
-      "name": "skdf",
-      "userName": "mk",
-      "password": "mk",
-      "address": "405 North Jefferson St. Winchester TN",
-      "id": 11
     },
     {
       "name": "asia",
@@ -125,6 +104,13 @@
       "password": "jd",
       "address": "1212 Shakedatass Lane, Nashville, TN 37216",
       "id": 22
+    },
+    {
+      "name": "Eric Fernandez",
+      "userName": "Enan",
+      "password": "eric",
+      "address": "630 bell road, Antioch, Tn 37013",
+      "id": 23
     }
   ],
   "savedPoliticians": [
