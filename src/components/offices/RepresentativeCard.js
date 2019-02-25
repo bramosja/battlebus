@@ -35,10 +35,10 @@ export default class RepresentativeCard extends Component {
     }
 
     findPoliticianDivision = (division) => {
-        console.log(this.props.divisions.division)
-       if(this.props.divisions.division){
-           return this.props.division.division.name
-       }
+        let divisionName = `${division}`
+        if(this.props.divisions[divisionName]){
+            return <Card.Meta>Division: {this.props.divisions[divisionName].name}</Card.Meta>
+        }
     }
 
     render(){
@@ -51,13 +51,14 @@ export default class RepresentativeCard extends Component {
                     <Image className="imageWidth" src={this.officialPhoto()} />
                     <Card.Content>
                     <Card.Header>{this.props.official.name}</Card.Header>
-                    <Card.Meta>{this.findPoliticianDivision(this.props.office.divisionId)}</Card.Meta>
+                    {this.findPoliticianDivision(this.props.office.divisionId)}
+
                     <Card.Description>{this.props.official.party}</Card.Description>
                     </Card.Content>
                     <Card.Content extra>
                         <Icon name='address card' />
                         Contact
-                        <Button onClick={this.saveOfficial}>Save</Button>
+                        <Button basic floated="right" onClick={this.saveOfficial}>Save</Button>
                     </Card.Content>
                 </Card>
             </Grid.Column>

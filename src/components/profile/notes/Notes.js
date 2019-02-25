@@ -30,6 +30,7 @@ export default class Notes extends Component {
 
     // this function toggles the buttons, and what displays in the notes section when the add note or edit note buttons are clicked
     addNoteForm = () => {
+        console.log(this.state.editClicked)
         // if the add button has been clicked, the notes form displays so that the user can add a new note
         if(this.state.newNoteVisible) {
            return (
@@ -42,7 +43,7 @@ export default class Notes extends Component {
                             if(this.state.editClicked && Number(note.id) === Number(this.state.divToEdit)){
                                 return (
                                     <div key={note.id}>
-                                        <EditNote toggleEdit={this.toggleEdit} noteId={note.id} savedPoliticianId={this.props.politicianId} noteEditor={this.editNote} noteContent={note.content} removeNote={this.deleteNote}/>
+                                        <EditNote toggleEdit={this.toggleEdit} noteId={note.id} savedPoliticianId={this.props.politicianId} noteEditor={this.editNote} noteContent={note.content} removeNote={this.deleteNote} />
                                     </div>
                                 )
                             } else {
@@ -110,7 +111,7 @@ export default class Notes extends Component {
         return (
             <React.Fragment>
                 {this.addNoteForm()}
-                <button type="button" onClick={this.toggleVisibility}>Add Note</button>
+                <Button type="button" onClick={this.toggleVisibility}>Add Note</Button>
             </React.Fragment>
 
         )}

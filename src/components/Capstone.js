@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
+import { Grid, Image, Menu, Segment } from 'semantic-ui-react'
 import ApplicationViews from './ApplicationViews';
-import Nav from "./nav/Nav"
-import { Grid, Menu, Segment} from 'semantic-ui-react'
 import Login from "./login/Login"
+import Logo from "./logo/BattlebusLogo.png";
+import Nav from "./nav/Nav"
 import Registration from "./register/Registration"
+import "../index.css"
 
 
 
 export default class Capstone extends Component {
     state = { activeItem: "local" }
 
+    handleLogoutClick = () => {
+        sessionStorage.clear();
+      }
 
     handleItemClick = (e, { name }) => {
         this.setState({ activeItem: name });
@@ -22,8 +27,13 @@ export default class Capstone extends Component {
         if(sessionStorage.getItem("user")){
         return <Grid>
             <Grid.Column width={2}>
-                <Menu fluid vertical tabular>
-                    <Nav handleItemClick={this.handleItemClick} activeItem={this.state.activeItem}/>
+                <Menu fluid inverted vertical tabular>
+                        <Image className="smallLogo" src={Logo} />
+                    <div className="smallNav">
+                        <Link to="/profile" onClick={this.handleItemClick}>Profile</Link>
+                        <Link to="/Login" onClick={this.handleLogoutClick}>Logout</Link>
+                    </div>
+                    <Nav className="navbar" handleItemClick={this.handleItemClick} activeItem={this.state.activeItem}/>
                 </Menu>
             </Grid.Column>
 

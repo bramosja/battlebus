@@ -29,13 +29,6 @@
       "id": 4
     },
     {
-      "name": "Mary QuiteContrary",
-      "userName": "MaryMe",
-      "password": "me",
-      "address": "1013 Estes Road, Nashville, TN 37215",
-      "id": 5
-    },
-    {
       "name": "dan",
       "userName": "theman",
       "password": "dan",
@@ -187,6 +180,21 @@
       "photo": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/45/PE%20Color.jpg",
       "userId": 25,
       "id": 16
+    },
+    {
+      "name": "Bill Lee",
+      "office": "Governor",
+      "levelOfGovernment": "State Government",
+      "userId": 1,
+      "id": 17
+    },
+    {
+      "name": "Donald J. Trump",
+      "office": "President of the United States",
+      "levelOfGovernment": "Federal Government",
+      "photo": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/45/PE%20Color.jpg",
+      "userId": 1,
+      "id": 18
     }
   ],
   "notes": [

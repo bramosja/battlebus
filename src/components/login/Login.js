@@ -4,6 +4,11 @@ import { Grid, Image } from "semantic-ui-react";
 import Logo from "../logo/BattlebusLogo.png";
 
 export default class LogIn extends Component {
+    clearUser = () => {
+        if(sessionStorage.getItem("user")){
+            sessionStorage.clear();
+        }
+    }
     render() {
         return (
             // The "Grid" elements of this code serve to provide the spacing and layout styling

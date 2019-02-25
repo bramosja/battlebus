@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Divider, Grid, Segment } from 'semantic-ui-react'
+import { Button, Divider, Grid, Segment } from 'semantic-ui-react'
 import SavedPoliticianCard from "./SavedPoliticianCard"
 import Notes from "./notes/Notes"
 export default class SavedPoliticianContainer extends Component {
@@ -16,8 +16,8 @@ export default class SavedPoliticianContainer extends Component {
                     <Grid columns={2} relaxed='very'>
                         <Grid.Column>
                                 <SavedPoliticianCard politician={politician}/>
-                                <button id={politician.id} onClick={this.removeSavedPolitician} >Remove</button>
-                                <button>Details</button>
+                                <Button id={politician.id} onClick={this.removeSavedPolitician} >Remove</Button>
+                                <Button>Details</Button>
                         </Grid.Column>
             {/* add all notes for the saved politician to the user's profile */}
                         <Grid.Column>
