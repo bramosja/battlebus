@@ -25,10 +25,11 @@ export default class Capstone extends Component {
     forSideBar = () => {
         //   if the user is logged in then they are presented with the side bar in order to change between pages
         if(sessionStorage.getItem("user")){
-        return <Grid>
-            <Grid.Column width={2}>
-                <Menu fluid inverted vertical tabular>
-                        <Image className="smallLogo" src={Logo} />
+        return (
+        <Grid>
+            <Grid.Column width={3} relaxed="very">
+                <Menu className="navWidth" fluid inverted vertical tabular size="huge">
+                    <Image className="smallLogo" size="medium" src={Logo} />
                     <div className="smallNav">
                         <Link to="/profile" onClick={this.handleItemClick}>Profile</Link>
                         <Link to="/Login" onClick={this.handleLogoutClick}>Logout</Link>
@@ -37,12 +38,13 @@ export default class Capstone extends Component {
                 </Menu>
             </Grid.Column>
 
-            <Grid.Column stretched width={14}>
+            <Grid.Column stretched width={13}>
                 <Segment>
                     <ApplicationViews />
                 </Segment>
             </Grid.Column>
         </Grid>
+        )
         } else {
             // If the user is not logged in they are presented with the log in page, and the option of registering an account
             return <React.Fragment>

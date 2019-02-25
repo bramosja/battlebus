@@ -3,6 +3,7 @@ import ProfileManager from "../../../modules/ProfileManager";
 import NotesForm from "./NotesForm"
 import EditNote from './EditNote';
 import { Button } from 'semantic-ui-react'
+import "./Notes.css"
 
 export default class Notes extends Component {
     state = {
@@ -49,7 +50,7 @@ export default class Notes extends Component {
                             } else {
                                 // if none of the other conditions are triggered, this piece of the code returns the list of notes for each politician
                                 return (
-                                        <div key={note.id}>
+                                        <div key={note.id} className="noteFeatures">
                                             <p>
                                                 {note.content}
                                                 <br />

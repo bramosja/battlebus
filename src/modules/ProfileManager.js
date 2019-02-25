@@ -19,6 +19,10 @@ export default {
         return fetch(`${remoteUrl}/users`).then(r => r.json())
     },
 
+    getUser(userId) {
+        return fetch(`${remoteUrl}/users/${userId}`).then(r => r.json())
+    },
+
     // *************************NOTES*************************
 
     getAllSavedPoliticianNotes(politicianId) {

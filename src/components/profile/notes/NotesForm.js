@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Input } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
 import "./Notes.css"
 
 export default class NotesForm extends Component {
@@ -38,8 +38,10 @@ export default class NotesForm extends Component {
         return (
             // This will be the form to add a new note to a user's profile
                 <div key={this.props.politicianId}>
-                    <Input fluid type="textarea" id="content" className="addNote" onChange={this.handleChange} />
-                    <Button type="button" onClick={this.addNote}>Save</Button>
+                <Form>
+                    <Form.TextArea fluid id="content" className="addNote" onChange={this.handleChange} />
+                    <Form.Button type="button" onClick={this.addNote}>Save</Form.Button>
+                </Form>
                 </div>
 
         )}

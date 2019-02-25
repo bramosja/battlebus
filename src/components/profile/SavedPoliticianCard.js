@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Image } from 'semantic-ui-react'
-import blankProfileImage from "../offices/images/blankProfilePic.png"
+import blankProfileImage from "./images/blankProfilePic.png"
 
 export default class SavedPoliticianCard extends Component {
     politicianPhoto = () => {

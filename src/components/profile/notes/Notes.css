@@ -1,4 +1,9 @@
 .addNote {
+    width: 400px;
     height: 300px;
-    word-wrap: break-word;
+}
+
+.noteFeatures {
+    overflow: scroll;
+    height: 400px;
 }
