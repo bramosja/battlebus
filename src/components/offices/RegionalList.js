@@ -18,7 +18,7 @@ export default class RegionalList extends Component {
                     {this.props.stateOffices.map(stateOffice =>
                         stateOffice.officialIndices.map( officialIndex =>
                             // call upon the representative card component for styling
-                            <RepresentativeCard key={officialIndex} office={stateOffice} index={officialIndex} official={this.props.stateOfficials[officialIndex]} photo={this.props.stateOfficials[officialIndex].photoUrl} level={this.state.level}/>
+                            <RepresentativeCard key={officialIndex} office={stateOffice} index={officialIndex} official={this.props.stateOfficials[officialIndex]} photo={this.props.stateOfficials[officialIndex].photoUrl} level={this.state.level} divisions={this.props.divisions} />
                         )
                     )}
                 </Grid.Row>

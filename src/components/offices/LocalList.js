@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import RepresentativeCard from "./RepresentativeCard";
-import { Grid } from 'semantic-ui-react'
+import { Grid } from "semantic-ui-react";
 
 export default class LocalList extends Component {
     state = {
@@ -18,7 +18,7 @@ export default class LocalList extends Component {
                     {this.props.localOffices.map(localOffice =>
                         localOffice.officialIndices.map(officialIndex =>
                             // call upon the representative card component for styling
-                            <RepresentativeCard key={officialIndex} office={localOffice} index={officialIndex} official={this.props.allOfficials[officialIndex]} photo={this.props.allOfficials[officialIndex].photoUrl} level={this.state.level}/>
+                            <RepresentativeCard key={officialIndex} office={localOffice} index={officialIndex} official={this.props.allOfficials[officialIndex]} photo={this.props.allOfficials[officialIndex].photoUrl} level={this.state.level} divisions={this.props.divisions} />
                     ))}
                     </Grid.Row>
                 </Grid>

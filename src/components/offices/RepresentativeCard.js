@@ -26,11 +26,19 @@ export default class RepresentativeCard extends Component {
 
     // function that distinguishes profiles that contain photos from profiles that do not, and includes an image in place of the actual photo
     officialPhoto = () => {
+
         if(this.props.photo){
             return this.props.photo;
         } else {
             return blankProfileImage;
         }
+    }
+
+    findPoliticianDivision = (division) => {
+        console.log(this.props.divisions.division)
+       if(this.props.divisions.division){
+           return this.props.division.division.name
+       }
     }
 
     render(){
@@ -40,10 +48,10 @@ export default class RepresentativeCard extends Component {
                     <h3>{this.props.office.name}</h3>
                 </div>
                 <Card key={this.props.index}>
-                    <Image src={this.officialPhoto()} />
+                    <Image className="imageWidth" src={this.officialPhoto()} />
                     <Card.Content>
                     <Card.Header>{this.props.official.name}</Card.Header>
-                    <Card.Meta></Card.Meta>
+                    <Card.Meta>{this.findPoliticianDivision(this.props.office.divisionId)}</Card.Meta>
                     <Card.Description>{this.props.official.party}</Card.Description>
                     </Card.Content>
                     <Card.Content extra>
