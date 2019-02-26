@@ -23,10 +23,8 @@ export default class SavedPoliticianCard extends Component {
                         <Card.Meta>
                             {this.props.politician.levelOfGovernment}
                         </Card.Meta>
-                        {/* <Card.Description></Card.Description> */}
                     </Card.Content>
                     <Card.Content extra>
-                        {/* <p>Somemoreinfo</p> */}
                     </Card.Content>
                 </Card>
         )}

@@ -7,7 +7,8 @@ import "./Offices.css"
 
 export default class RepresentativeCard extends Component {
     state = {
-        contentClicked: false
+        contentClicked: false,
+        division: ""
     }
 
     toggleContentClick = () => {
@@ -25,6 +26,9 @@ export default class RepresentativeCard extends Component {
             office: this.props.office.name,
             levelOfGovernment: this.props.level,
             photo: this.props.photo,
+            address: this.props.address[0],
+            phone: this.props.official.phones[0],
+            division: this.state.division,
             userId: sessionUserId,
         }
 
@@ -44,6 +48,7 @@ export default class RepresentativeCard extends Component {
 
     findPoliticianDivision = (division) => {
         let divisionName = `${division}`
+
         if(this.props.divisions[divisionName]){
             return <Card.Meta>Division: {this.props.divisions[divisionName].name}</Card.Meta>
         }
@@ -68,7 +73,6 @@ export default class RepresentativeCard extends Component {
 
     cardContent = () => {
         if(this.state.contentClicked){
-            console.log(this.props.official)
             return <React.Fragment>
                 <Card.Content>
                     <Card.Header>{this.props.official.name}</Card.Header>

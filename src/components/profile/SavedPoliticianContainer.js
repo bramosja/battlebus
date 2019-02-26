@@ -17,7 +17,6 @@ export default class SavedPoliticianContainer extends Component {
                         <Grid.Column>
                                 <SavedPoliticianCard politician={politician}/>
                                 <Button id={politician.id} onClick={this.removeSavedPolitician} >Remove</Button>
-                                <Button>Details</Button>
                         </Grid.Column>
             {/* add all notes for the saved politician to the user's profile */}
                         <Grid.Column>
