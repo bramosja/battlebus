@@ -2,3 +2,11 @@
     height: 40px;
     padding: 5px 0 0 0;
 }
+
+.imageWidth {
+    width: 100%;
+}
+
+.addressContainer {
+    display: flex;
+}

@@ -6,6 +6,16 @@ import "./Offices.css"
 
 
 export default class RepresentativeCard extends Component {
+    state = {
+        contentClicked: false,
+        division: ""
+    }
+
+    toggleContentClick = () => {
+        this.setState({ contentClicked: !this.state.contentClicked })
+    }
+
+
     // the saveOfficial function takes some of the information provided by the civic api and saves it to the user's profile. it then alerts the user that they have saved the politician
     saveOfficial = () => {
         let sessionUser = sessionStorage.getItem("user");
@@ -16,7 +26,10 @@ export default class RepresentativeCard extends Component {
             office: this.props.office.name,
             levelOfGovernment: this.props.level,
             photo: this.props.photo,
-            userId: sessionUserId
+            address: this.props.address[0],
+            phone: this.props.official.phones[0],
+            division: this.state.division,
+            userId: sessionUserId,
         }
 
         RepresentativeManager.saveOfficial(officialObject)
@@ -33,6 +46,73 @@ export default class RepresentativeCard extends Component {
         }
     }
 
+    findPoliticianDivision = (division) => {
+        let divisionName = `${division}`
+
+        if(this.props.divisions[divisionName]){
+            return <Card.Meta>Division: {this.props.divisions[divisionName].name}</Card.Meta>
+        }
+    }
+
+    address = () => {
+        if (this.props.address){
+            return <div className="addressContainer">
+                <div height="100%" >
+                    <Icon name="mail outline" />
+                </div>
+                <div>
+                    {this.props.address[0].line1} <br />
+                    {this.props.address[0].line2}
+                    {this.props.address[0].city} <br />
+                    {this.props.address[0].state} <br />
+                    {this.props.address[0].zip} <br />
+                </div>
+            </div>
+        }
+    }
+
+    cardContent = () => {
+        if(this.state.contentClicked){
+            return <React.Fragment>
+                <Card.Content>
+                    <Card.Header>{this.props.official.name}</Card.Header>
+                    <Card.Description>
+                        <Icon name="phone" />
+                        {this.props.official.phones[0]}
+                        <br />
+                        {this.address()}
+                    </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                <div>
+                    <Button icon labelPosition='left' onClick={this.toggleContentClick}>
+                        <Icon name='info' />
+                        Info
+                    </Button>
+                    <Button basic floated="right" onClick={this.saveOfficial}>Save</Button>
+                </div>
+                </Card.Content>
+            </React.Fragment>
+        } else {
+            return <React.Fragment>
+                <Card.Content>
+                    <Card.Header>{this.props.official.name}</Card.Header>
+                    {this.findPoliticianDivision(this.props.office.divisionId)}
+                    <Card.Description>{this.props.official.party}</Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                <div>
+                    <Button icon labelPosition='left' onClick={this.toggleContentClick}>
+                        <Icon name='address card' />
+                        Contact
+                    </Button>
+                    <Button basic floated="right" onClick={this.saveOfficial}>Save</Button>
+                </div>
+                </Card.Content>
+            </React.Fragment>
+        }
+    }
+
     render(){
         return (
             <Grid.Column>
@@ -40,17 +120,10 @@ export default class RepresentativeCard extends Component {
                     <h3>{this.props.office.name}</h3>
                 </div>
                 <Card key={this.props.index}>
-                    <Image src={this.officialPhoto()} />
-                    <Card.Content>
-                    <Card.Header>{this.props.official.name}</Card.Header>
-                    <Card.Meta></Card.Meta>
-                    <Card.Description>{this.props.official.party}</Card.Description>
-                    </Card.Content>
-                    <Card.Content extra>
-                        <Icon name='address card' />
-                        Contact
-                        <Button onClick={this.saveOfficial}>Save</Button>
-                    </Card.Content>
+                    <Image className="imageWidth" src={this.officialPhoto()} />
+
+                    {this.cardContent()}
+
                 </Card>
             </Grid.Column>
         )

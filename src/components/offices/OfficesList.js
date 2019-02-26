@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import RepresentativeManager from "../../modules/RepresentativeManager"
+import RepresentativeManager from "../../modules/RepresentativeManager";
 import { Route } from "react-router-dom";
-import FederalList from "./FederalList"
-import RegionalList from "./RegionalList"
-import LocalList from "./LocalList"
+import FederalList from "./FederalList";
+import RegionalList from "./RegionalList";
+import LocalList from "./LocalList";
 
 export default class OfficesList extends Component {
 
@@ -58,7 +58,7 @@ export default class OfficesList extends Component {
                     divisions: allOffices.divisions
 
                 })
-                this.findLocalOffices()
+                this.findLocalOffices();
             });
     };
 
@@ -66,13 +66,13 @@ export default class OfficesList extends Component {
         return (
             <React.Fragment>
                 <Route exact path="/local" render={props => {
-                    return <LocalList localOffices={this.state.localOffices} allOfficials={this.state.allOfficials} />
+                    return <LocalList localOffices={this.state.localOffices} allOfficials={this.state.allOfficials} divisions={this.state.divisions} />
                 }} />
                 <Route exact path="/state" render={props =>{
-                    return <RegionalList stateOffices={this.state.stateOffices} stateOfficials={this.state.stateOfficials} />
+                    return <RegionalList stateOffices={this.state.stateOffices} stateOfficials={this.state.stateOfficials} divisions={this.state.divisions} />
                 }} />
                 <Route exact path="/federal" render={props =>{
-                    return <FederalList federalOffices={this.state.federalOffices} federalOfficials={this.state.federalOfficials}/>
+                    return <FederalList federalOffices={this.state.federalOffices} federalOfficials={this.state.federalOfficials} divisions={this.state.divisions} />
                 }} />
             </React.Fragment>
             )

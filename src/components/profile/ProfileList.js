@@ -4,7 +4,8 @@ import ProfileManager from "../../modules/ProfileManager";
 
 export default class ProfileList extends Component {
     state = {
-        savedPoliticians: []
+        savedPoliticians: [],
+        currentUser: ""
     }
 
     deletePolitician = (id) => {
@@ -34,13 +35,18 @@ export default class ProfileList extends Component {
             savedPoliticians: allUsersSavedPoliticians.savedPoliticians
             })
         })
+        ProfileManager.getUser(sessionUserId)
+        .then(user => {
+            this.setState({
+                currentUser: user.name
+            })
+        })
     }
-
 
     render() {
         return (
             <React.Fragment>
-                <h1>Profile</h1>
+                <h1>{`${this.state.currentUser}'s Profile`}</h1>
                 <SavedPoliticianContainer allPoliticians={this.state.savedPoliticians} deletePolitician={this.deletePolitician}/>
             </React.Fragment>
         )

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Input } from "semantic-ui-react";
 
 export default class EditNote extends Component {
     // state will hold the input of the new note
@@ -32,6 +33,8 @@ export default class EditNote extends Component {
     removeNote = (evt) => {
         evt.preventDefault();
 
+        this.props.toggleEdit(evt)
+
         this.props.removeNote(Number(this.props.noteId));
     };
 
@@ -44,9 +47,9 @@ export default class EditNote extends Component {
     render() {
         return (
             <React.Fragment>
-                <input type="text" id="content" defaultValue={this.props.noteContent} onChange={this.handleChange} />
-                <button onClick={this.editNoteButton}>Update</button>
-                <button onClick={this.removeNote}>Remove</button>
+                <Input type="text" id="content" defaultValue={this.props.noteContent} onChange={this.handleChange} />
+                <Button onClick={this.editNoteButton}>Update</Button>
+                <Button onClick={this.removeNote}>Remove</Button>
             </React.Fragment>
         )
     }

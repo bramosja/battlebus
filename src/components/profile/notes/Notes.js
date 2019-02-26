@@ -3,6 +3,7 @@ import ProfileManager from "../../../modules/ProfileManager";
 import NotesForm from "./NotesForm"
 import EditNote from './EditNote';
 import { Button } from 'semantic-ui-react'
+import "./Notes.css"
 
 export default class Notes extends Component {
     state = {
@@ -30,6 +31,7 @@ export default class Notes extends Component {
 
     // this function toggles the buttons, and what displays in the notes section when the add note or edit note buttons are clicked
     addNoteForm = () => {
+        console.log(this.state.editClicked)
         // if the add button has been clicked, the notes form displays so that the user can add a new note
         if(this.state.newNoteVisible) {
            return (
@@ -42,13 +44,13 @@ export default class Notes extends Component {
                             if(this.state.editClicked && Number(note.id) === Number(this.state.divToEdit)){
                                 return (
                                     <div key={note.id}>
-                                        <EditNote toggleEdit={this.toggleEdit} noteId={note.id} savedPoliticianId={this.props.politicianId} noteEditor={this.editNote} noteContent={note.content} removeNote={this.deleteNote}/>
+                                        <EditNote toggleEdit={this.toggleEdit} noteId={note.id} savedPoliticianId={this.props.politicianId} noteEditor={this.editNote} noteContent={note.content} removeNote={this.deleteNote} />
                                     </div>
                                 )
                             } else {
                                 // if none of the other conditions are triggered, this piece of the code returns the list of notes for each politician
                                 return (
-                                        <div key={note.id}>
+                                        <div key={note.id} className="noteFeatures">
                                             <p>
                                                 {note.content}
                                                 <br />
@@ -110,7 +112,7 @@ export default class Notes extends Component {
         return (
             <React.Fragment>
                 {this.addNoteForm()}
-                <button type="button" onClick={this.toggleVisibility}>Add Note</button>
+                <Button type="button" onClick={this.toggleVisibility}>Add Note</Button>
             </React.Fragment>
 
         )}
