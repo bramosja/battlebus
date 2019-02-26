@@ -18,7 +18,7 @@ export default class LocalList extends Component {
                     {this.props.localOffices.map(localOffice =>
                         localOffice.officialIndices.map(officialIndex =>
                             // call upon the representative card component for styling
-                            <RepresentativeCard key={officialIndex} office={localOffice} index={officialIndex} official={this.props.allOfficials[officialIndex]} photo={this.props.allOfficials[officialIndex].photoUrl} level={this.state.level} divisions={this.props.divisions} />
+                            <RepresentativeCard key={officialIndex} address={this.props.allOfficials[officialIndex].address} office={localOffice} index={officialIndex} official={this.props.allOfficials[officialIndex]} photo={this.props.allOfficials[officialIndex].photoUrl} level={this.state.level} divisions={this.props.divisions} />
                     ))}
                     </Grid.Row>
                 </Grid>

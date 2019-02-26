@@ -19,7 +19,7 @@ export default class FederalList extends Component {
                         {this.props.federalOffices.map(federalOffice =>
                             federalOffice.officialIndices.map( officialIndex =>
                                 // call upon the representative card component for styling
-                                <RepresentativeCard key={officialIndex} office={federalOffice} index={officialIndex} official={this.props.federalOfficials[officialIndex]} photo={this.props.federalOfficials[officialIndex].photoUrl} level={this.state.level} divisions={this.props.divisions} />
+                                <RepresentativeCard key={officialIndex} address={this.props.federalOfficials[officialIndex].address} office={federalOffice} index={officialIndex} official={this.props.federalOfficials[officialIndex]} photo={this.props.federalOfficials[officialIndex].photoUrl} level={this.state.level} divisions={this.props.divisions} />
                             )
                         )}
                     </Grid.Row>

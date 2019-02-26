@@ -6,3 +6,7 @@
 .imageWidth {
     width: 100%;
 }
+
+.addressContainer {
+    display: flex;
+}
